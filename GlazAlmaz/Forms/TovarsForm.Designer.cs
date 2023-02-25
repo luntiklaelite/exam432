@@ -60,9 +60,10 @@ namespace GlazAlmaz.Forms
             // 
             // btnAdd
             // 
+            this.btnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(2)))), ((int)(((byte)(33)))));
             this.btnAdd.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnAdd.Location = new System.Drawing.Point(12, 415);
+            this.btnAdd.Location = new System.Drawing.Point(12, 377);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(162, 23);
             this.btnAdd.TabIndex = 8;
@@ -72,10 +73,14 @@ namespace GlazAlmaz.Forms
             // 
             // flpMain
             // 
+            this.flpMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flpMain.AutoScroll = true;
+            this.flpMain.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpMain.Location = new System.Drawing.Point(185, 9);
             this.flpMain.Name = "flpMain";
-            this.flpMain.Size = new System.Drawing.Size(612, 429);
+            this.flpMain.Size = new System.Drawing.Size(600, 393);
             this.flpMain.TabIndex = 9;
             // 
             // label2
@@ -135,7 +140,7 @@ namespace GlazAlmaz.Forms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(209)))), ((int)(((byte)(229)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(788, 412);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.cbSort);
             this.Controls.Add(this.label3);
@@ -146,9 +151,11 @@ namespace GlazAlmaz.Forms
             this.Controls.Add(this.tbSearch);
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(804, 451);
             this.Name = "TovarsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр товаров";
+            this.ResizeEnd += new System.EventHandler(this.TovarsForm_ResizeEnd);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -32,12 +32,13 @@ namespace GlazAlmaz.Controls
 
             if(Repository.LocalUser.Role.Id != 2)
             {
-                btnDelete.Enabled = false;
-                btnEdit.Enabled = false;
+                btnDelete.Visible = false;
+                btnEdit.Visible = false;
             }
 
             this.tovar = tovar;
         }
+
 
         public TovarViewControl() { }
 

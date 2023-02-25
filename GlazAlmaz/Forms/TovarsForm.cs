@@ -21,7 +21,7 @@ namespace GlazAlmaz.Forms
             InitializeComponent();
             if (Repository.LocalUser.Role.Id != 2)
             {
-                btnAdd.Enabled = false;
+                btnAdd.Visible = false;
             }
 
             this.cbCategory.Items.Add("Все");
@@ -109,6 +109,14 @@ namespace GlazAlmaz.Forms
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             RefreshData();
+        }
+
+        private void TovarsForm_ResizeEnd(object sender, EventArgs e)
+        {
+            foreach(Control ctrl in flpMain.Controls)
+            {
+                ctrl.Width = flpMain.Width - 20;
+            }
         }
     }
 }
