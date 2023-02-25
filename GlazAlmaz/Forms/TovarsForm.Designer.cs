@@ -36,6 +36,9 @@ namespace GlazAlmaz.Forms
             this.flpMain = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.cbCategory = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cbSort = new System.Windows.Forms.ComboBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -93,12 +96,49 @@ namespace GlazAlmaz.Forms
             this.cbCategory.TabIndex = 11;
             this.cbCategory.SelectedIndexChanged += new System.EventHandler(this.cbCategory_SelectedIndexChanged);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 97);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Сортировка";
+            // 
+            // cbSort
+            // 
+            this.cbSort.FormattingEnabled = true;
+            this.cbSort.Items.AddRange(new object[] {
+            "Название",
+            "Цена"});
+            this.cbSort.Location = new System.Drawing.Point(12, 115);
+            this.cbSort.Name = "cbSort";
+            this.cbSort.Size = new System.Drawing.Size(162, 23);
+            this.cbSort.TabIndex = 13;
+            this.cbSort.SelectedIndexChanged += new System.EventHandler(this.cbSort_SelectedIndexChanged);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Checked = true;
+            this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBox1.Location = new System.Drawing.Point(12, 144);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(117, 19);
+            this.checkBox1.TabIndex = 14;
+            this.checkBox1.Text = "По возрастанию";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
             // TovarsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(209)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbSort);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbCategory);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.flpMain);
@@ -122,5 +162,8 @@ namespace GlazAlmaz.Forms
         private System.Windows.Forms.FlowLayoutPanel flpMain;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbSort;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }

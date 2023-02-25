@@ -27,14 +27,18 @@ namespace GlazAlmaz.Forms
             this.cbCategory.Items.Add("Все");
             this.cbCategory.Items.AddRange(Repository.Instance.Categories.ToArray());
 
+            this.cbSort.SelectedIndex = 1;
+
             RefreshData();
         }
 
         public void RefreshData()
         {
             flpMain.Controls.Clear();
-            foreach(var tovar in Repository.Instance.Tovars.Include(i => i.Category).Include(i => i.Postavshik)
-                .Where(t => t.Name.Contains(tbSearch.Text)).ToList().Where(t => FilterCategory(t)))
+            var tovars = Repository.Instance.Tovars.Include(i => i.Category).Include(i => i.Postavshik)
+                .Where(t => t.Name.Contains(tbSearch.Text)).ToList().Where(t => FilterCategory(t)).ToList();
+            tovars = SortBy(tovars);
+            foreach (var tovar in tovars)
             {
                 var control = new TovarViewControl(tovar);
                 control.Width = flpMain.Width - 20;
@@ -69,7 +73,40 @@ namespace GlazAlmaz.Forms
             return false;
         }
 
+        private List<Tovar> SortBy(List<Tovar> tovars)
+        {
+            if (checkBox1.Checked)
+            {
+                if (cbSort.SelectedIndex == -1)
+                    return tovars.OrderBy(t => t.Id).ToList();
+                else if (cbSort.SelectedItem.ToString() == "Название")
+                    return tovars.OrderBy(t => t.Name).ToList();
+                else if (cbSort.SelectedItem.ToString() == "Цена")
+                    return tovars.OrderBy(t => t.Price).ToList();
+            }
+            else
+            {
+                if (cbSort.SelectedIndex == -1)
+                    return tovars.OrderByDescending(t => t.Id).ToList();
+                else if (cbSort.SelectedItem.ToString() == "Название")
+                    return tovars.OrderByDescending(t => t.Name).ToList();
+                else if (cbSort.SelectedItem.ToString() == "Цена")
+                    return tovars.OrderByDescending(t => t.Price).ToList();
+            }
+            return tovars;
+        }
+
         private void cbCategory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void cbSort_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshData();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             RefreshData();
         }
